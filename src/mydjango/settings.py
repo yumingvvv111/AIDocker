@@ -119,18 +119,19 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
+# 前端静态文件存放地址 (CSS, JavaScript, Images)
+
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
+
+# redis中间件地址
 CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 
-STATIC_ROOT = './static/'
-MEDIA_ROOT = '/media/'
 
+# 输出日志
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
