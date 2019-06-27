@@ -88,7 +88,9 @@ conda create -n tensorflow python=3.6
 
 `activate tensorflow` (或者前边加 source)
 
-4. 正式安装TensorFlow
+4. 安装TensorFlow等项目依赖的模块
+
+* 通过pip安装
 
 ```
 #CPU版本
@@ -101,6 +103,15 @@ pip install --upgrade tensorflow-gpu
 
 ```
 
+同样的方法, 安装其它依赖模块
+
+* 或者通过conda安装
+  
+  前提文件夹内有environment.txt或者environment.yaml文件
+  生成环境文件的命令是`conda env export > environment.yaml `
+  导入环境的命令是`conda env create -f environment.yaml `
+
+
 5. 测试是否成功安装
 
 ```
@@ -110,4 +121,19 @@ import tensorflow as tf
 ```
 没报错即成功
 
-6. 同样的方法, 安装其它依赖模块
+6. 安装依赖之后运行项目
+   
+在命令行里启动项目
+
+7. 保存项目
+
+执行`exit`退出docker容器
+然后输入`docker ps -a`查看刚才退出的是哪个容器, 复制它的id
+执行`docker commit 80cdc99d89dd new_container:tag1`, 其中80cdc99d89dd就是容器的id号, 自行替换. 后边的参数分别是容器名和标签名
+
+8. 再次进入项目不需要重新安装环境
+
+只用执行`docker images`查看上一步创建的新镜像名'new_container', 复制他的id号, 假如是12345678
+
+然后`docker run -it 12345678` 则再次进入容器, 直接运行项目而不需再次安装依赖.
+

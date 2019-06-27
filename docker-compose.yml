@@ -4,7 +4,7 @@ services:
     image: nginx:alpine
     container_name: nz01
     ports:
-      - "8000:8000"
+      - "8998:8998"
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./src:/src
     expose:
-      - "8000"
+      - "8999"
     links:
       - redis
   db:
