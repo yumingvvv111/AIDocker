@@ -37,9 +37,9 @@ RUN mkdir /static
 WORKDIR /src
 
 #把物理机src里的所有文件添加到容器src目录里
-ADD ./src /src
+ADD ./faceLogin /src
 
-# RUN pip install --upgrade pip
+# RUN pip install --upgrade python-pip
 # RUN pip install -r requirements2.pip
 
 # CMD python gan.py
